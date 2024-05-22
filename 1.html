@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ItStep</title>
+    <style>
+        img{
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="book"></div>
+    <div id="music"></div>
+    <div id="recipe"></div>
+
+        
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+        const bookDiv = document.getElementById("book");
+        const groupDiv = document.getElementById("music");
+        const recipeDiv = document.getElementById("recipe");
+
+        const mainStyle = {
+            display: 'flex',
+            width:'fit-content',
+            flexDirection: 'column',
+            padding: '1em',
+            backgroundColor:'grey',
+            margin:'1em'
+        };
+
+        const book = {
+            name: 'Светила',
+            authorName: 'Элеанор Каттон',
+            genre:'Роман',
+            pages:842
+        };
+
+        const musicGroup = {
+            name:'Deftones',
+            leader:'Chino Moreno',
+            genre: 'Rock',
+            image1: 'deftones-around-the-fur-180g-scaled.jpg',
+            image2: 'OIP.jpeg'
+        }
+
+        const dish = {
+            name: 'Борщ',
+            ingredients: 'вода, свинина, свёкла,морковь,лук томатная паста, подсолнечное масло,лимонная кислота',
+            image:'Depositphotos_46588671_m-2015-323x323.jpg'
+        }
+
+        ReactDOM.createRoot(bookDiv)
+            .render(
+                <div style={mainStyle}>
+                    <p>Название: {book.name}</p>
+                    <p>Имя автора: {book.authorName}</p>
+                    <p>Жанр: {book.genre}</p>
+                    <p>Количество страниц: {book.pages}</p>
+                </div>
+            );
+
+        ReactDOM.createRoot(groupDiv)
+                .render(
+                    <div style={mainStyle}>
+                    <p>Название: {musicGroup.name}</p>
+                    <p>Лидер: {musicGroup.leader}</p>
+                    <p>Жанр: {musicGroup.genre}</p>
+                    <img src={musicGroup.image1}/>
+                    <img src = {musicGroup.image2}/>
+                </div>
+                )
+
+        ReactDOM.createRoot(recipeDiv)
+                .render(
+                    <div style={mainStyle}>
+                        <p>Название: {dish.name}</p>
+                        <p>Ингредиенты: {dish.ingredients}</p>
+                        <img src = {dish.image}/>
+                     </div>
+                )
+    </script>
+</body>
+</html>
